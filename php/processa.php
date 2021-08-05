@@ -12,24 +12,24 @@ $caminhoArquivosIniEn = (__DIR__ . "/../../applications/system/lang/english/");
 $files = glob($caminhoArquivosIniPt . '*.{ini}', GLOB_BRACE);
 
 if (is_writable($caminhoArquivosIniEn)) {
+
     $_SESSION['msg'] .= "<br><p class='p-green'>O diretório lang/english tem as permissões necessárias!</p>";
+
     foreach ($files as $file) {
-        $nomeArquivoIniEn = "en_" . explode("pt-br_", basename($file))[1];
+        if (copy($caminhoArquivosIniPt . basename($file), $caminhoArquivosIniEn . basename($file))) {
 
-        //cria arquivo ini
+            $nomeArquivoIniEn = "en_" . explode("pt-br_", basename($file))[1];
 
-        if (!file_exists($caminhoArquivosIniEn . $nomeArquivoIniEn)) {
-            if (file_put_contents($caminhoArquivosIniEn . $nomeArquivoIniEn, FILE_APPEND) != false) {
+            if (rename($caminhoArquivosIniEn . basename($file), $caminhoArquivosIniEn . $nomeArquivoIniEn)) {
                 $_SESSION['msgDetalhado'] .= "<br><p class='p-blue'>Arquivo " . $nomeArquivoIniEn . " criado com sucesso!</p>";
                 $contArquivos++;
             } else {
                 $_SESSION['msgDetalhado'] .= "<br><p class='p-red'>Erro ao criar arquivo " . $nomeArquivoIniEn . "!</p>";
             }
         } else {
-            $_SESSION['msgDetalhado'] .= "<br><p class='p-red'>Arquivo " . $nomeArquivoIniEn . " não foi criado pois já existe!</p>";
+            $_SESSION['msgDetalhado'] .= "<br><p class='p-red'>Erro ao criar arquivo " . $nomeArquivoIniEn . "!</p>";
         }
     }
-
 } else {
     $_SESSION['msg'] .= "<br><p class='p-red'>O diretório lang/english NÃO tem as permissões necessárias!</p>";
 }
