@@ -13,7 +13,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/main.css">
-    <title>AutoGenerate En Files</title>
+    <title>AutoGenerate Pt/En Files</title>
 </head>
 
 <style>
@@ -40,13 +40,20 @@ session_start();
 </style>
 
 <body>
-    <h1>Gerador de arquivos En</h1>
+    <h1>Gerador de arquivos Pt-br/En</h1>
 
+    <form action="processa.php" method="POST">
+        <p>Esse script vai percorrer a pasta admin e criar um arquivo na pasta pt-br para cada um dessa pasta admin</p>
+        <br>
+        <input type="hidden" name="gerarPt" value="true">
+        <button type="submit">Gerar PT-BR</button>
+    </form>
+    <br><br>
     <form action="processa.php" method="POST">
         <p>Esse script vai percorrer a pasta dos arquivos pt-br e criar um arquivo na pasta en para cada um dessa pasta pt-br</p>
         <br>
-        <input type="hidden" name="gerar">
-        <button type="submit">Gerar</button>
+        <input type="hidden" name="gerarEn" value="true">
+        <button type="submit">Gerar EN</button>
     </form>
 
     <div style="margin-top: 10px;">
