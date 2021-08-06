@@ -49,7 +49,6 @@ if(isset($_POST['gerarPt']) && $_POST['gerarPt'] == "true"){
     if (is_writable($caminhoArquivosIniPt)) {
     
         $_SESSION['msg'] .= "<br><p class='p-green'>O diretório lang/portugues-brasil tem as permissões necessárias!</p>";
-
         
         foreach ($files as $file) {
             $nomeArquivoIniPt = "pt-br_" . explode(".php", basename($file))[0] . ".ini";
