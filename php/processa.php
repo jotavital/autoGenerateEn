@@ -4,13 +4,14 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-$contArquivos = 0;
 
 $caminhoArquivosIniPt = (__DIR__ . "/../../applications/system/lang/portugues-brasil/");
 $caminhoArquivosIniEn = (__DIR__ . "/../../applications/system/lang/english/");
 $pastaAdmin = __DIR__ . "/../../applications/system/admin/";
 
 if(isset($_POST['gerarEn']) && $_POST['gerarEn'] == "true"){
+    $contArquivos = 0;
+    
     $files = glob($caminhoArquivosIniPt . '*.{ini}', GLOB_BRACE);
     
     if (is_writable($caminhoArquivosIniEn)) {
@@ -39,9 +40,10 @@ if(isset($_POST['gerarEn']) && $_POST['gerarEn'] == "true"){
     $_SESSION['msg'] .= "<br><p class='p-green'>" . $contArquivos . " arquivos EN foram criados!</p>";
 }
 
-$contArquivos = 0;
 
 if(isset($_POST['gerarPt']) && $_POST['gerarPt'] == "true"){
+    $contArquivos = 0;
+
     $files = glob($pastaAdmin . '*.{php}', GLOB_BRACE);
     
     if (is_writable($caminhoArquivosIniPt)) {
