@@ -43,17 +43,17 @@ session_start();
     <h1>Gerador de arquivos Pt-br/En</h1>
 
     <form action="processa.php" method="POST">
-        <p>Esse script vai percorrer a pasta admin e criar um arquivo na pasta pt-br para cada um dessa pasta admin</p>
-        <br>
-        <input type="hidden" name="gerarPt" value="true">
-        <button type="submit">Gerar PT-BR</button>
-    </form>
-    <br><br>
-    <form action="processa.php" method="POST">
         <p>Esse script vai percorrer a pasta dos arquivos pt-br e criar um arquivo na pasta en para cada um dessa pasta pt-br</p>
         <br>
         <input type="hidden" name="gerarEn" value="true">
         <button type="submit">Gerar EN</button>
+    </form>
+    <br><br><br>
+    <form action="processa.php" method="POST">
+        <p>Esse script vai percorrer a pasta admin e criar um arquivo na pasta pt-br para cada um dessa pasta admin</p>
+        <br>
+        <input type="hidden" name="gerarPt" value="true">
+        <button type="submit">Gerar PT-BR</button>
     </form>
 
     <div style="margin-top: 10px;">
